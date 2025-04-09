@@ -1,4 +1,5 @@
-# 🍽️ Food Recognition and calorie estimator
+
+# 🍽️ Food Recognition and Calorie Estimation App
 
 A Flask-based web application that uses a pre-trained deep learning model (InceptionV3) to recognize food items from images and estimate their calorie content using a food dataset.
 
@@ -26,13 +27,16 @@ A Flask-based web application that uses a pre-trained deep learning model (Incep
 
 ## 📁 Project Structure
 
-food-recognition-app/ │ 
-├── app.py # Flask app with ML model integration 
-├── templates/ 
-│ └── index.html # Web interface  
-├── Calorie_value1.csv # CSV file with food items and calorie values 
-├── requirements.txt # Python dependencies 
-└── README.md # Project documentation
+```
+food-recognition-app/
+│
+├── app.py                    # Flask app with ML model integration
+├── templates/
+│   └── index.html            # Web interface 
+├── Calorie_value1.csv        # CSV file with food items and calorie values
+├── requirements.txt          # Python dependencies
+└── README.md                 # Project documentation
+```
 
 ---
 
@@ -55,57 +59,80 @@ food-recognition-app/ │
 ```bash
 git clone https://github.com/yourusername/food-recognition-app.git
 cd food-recognition-app
-2. Create a Virtual Environment (Optional but Recommended)
-bash
+```
+
+### 2. Create a Virtual Environment (Optional but Recommended)
+
+```bash
 python -m venv venv
 source venv/bin/activate    # On Windows: venv\Scripts\activate
-3. Install Dependencies
-bash
+```
+
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
-If requirements.txt is not present, manually install:
+```
 
-bash
+If `requirements.txt` is not present, manually install:
+
+```bash
 pip install flask flask-cors tensorflow pandas numpy
-4. Place the CSV File
-Ensure the file Calorie_value1.csv containing food items and calorie values is placed in the correct path as expected by the code, or update the path in app.py.
+```
 
-🧪 Running the App
+### 4. Place the CSV File
+
+Ensure the file `Calorie_value1.csv` containing food items and calorie values is placed in the correct path as expected by the code, or update the path in `app.py`.
+
+---
+
+## 🧪 Running the App
+
 Start the development server:
 
-bash
+```bash
 python app.py
+```
 
-The application will be available at:
-http://127.0.0.1:5000
+The application will be available at:  
+[http://127.0.0.1:5000](http://127.0.0.1:5000)
 
-🎯 API Endpoint
-POST /recognize_food
+---
+
+## 🎯 API Endpoint
+
+### `POST /recognize_food`
+
 Uploads an image and returns the food label with its estimated calories.
 
-Request
-multipart/form-data
+#### Request
 
-Field: image (food image file)
+- `multipart/form-data`
+- Field: `image` (food image file)
 
-Response (Success: 200)
-json
-Copy
-Edit
+#### Response (Success: 200)
+
+```json
 {
   "label": "pizza",
   "calories": 285
 }
-Response (Error)
-json
-Copy
-Edit
+```
+
+#### Response (Error)
+
+```json
 {
   "error": "No image provided"
 }
-🔍 Notes
-Make sure the image is a recognizable food item from the ImageNet dataset.
+```
 
-The calorie dataset must have matching labels (in lowercase) with ImageNet labels.
+---
 
-To update the model or dataset, modify get_food_calories() or retrain the model as needed.
+## 🔍 Notes
 
+- Make sure the image is a recognizable food item from the ImageNet dataset.
+- The calorie dataset must have matching labels (in lowercase) with ImageNet labels.
+- To update the model or dataset, modify `get_food_calories()` or retrain the model as needed.
+
+---
